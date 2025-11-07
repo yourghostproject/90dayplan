@@ -1,720 +1,122 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>YGP — 90-Day Music Hustle Tracker</title>
-  <meta name="description" content="Track daily outreach, content, and pipeline for your 90-day execution plan.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    :root { --ring: 0 0% 0%; }
-    body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
-    .glass { background: linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.65)); backdrop-filter: blur(10px); }
-    .dark .glass { background: linear-gradient(180deg, rgba(15,23,42,.7), rgba(15,23,42,.6)); }
-    .card { @apply rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-sm; }
-    .btn { @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-semibold shadow-sm transition active:scale-[.98] focus:outline-none focus:ring-2 focus:ring-violet-500; }
-    .btn-primary { @apply bg-violet-600 text-white hover:bg-violet-700; }
-    .btn-ghost { @apply hover:bg-slate-100 dark:hover:bg-slate-800; }
-    .btn-outline { @apply border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800; }
-    .chip { @apply inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-medium; }
-    .kbd { @apply px-2 py-0.5 rounded border text-xs font-mono bg-slate-50 dark:bg-slate-800; }
-    .ring-v { box-shadow: 0 0 0 3px rgba(124,58,237,.25); }
-    .grid-7 { display: grid; grid-template-columns: repeat(7, minmax(0,1fr)); gap: .5rem; }
-    .day { @apply rounded-xl border p-2 transition hover:shadow-sm text-xs border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900; }
-    .day.today { @apply border-violet-500 ring-1 ring-violet-300 dark:ring-violet-800; }
-    .day.buffer { @apply bg-amber-50 dark:bg-amber-900/20 border-amber-300 dark:border-amber-700; }
-    .tick { @apply h-4 w-4 rounded-md border border-slate-300 dark:border-slate-600; }
-    .tick:checked { @apply bg-violet-600; }
-    .pill { @apply px-2 py-0.5 rounded-full text-[10px] font-semibold; }
-    .sticky-bar { position: sticky; top: 64px; z-index: 20; }
-    .shimmer { background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(124,58,237,.2) 50%, rgba(255,255,255,0) 100%); background-size: 200% 100%; animation: shimmer 2.5s infinite; }
-    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-    .toast { @apply fixed bottom-6 right-6 px-4 py-2 rounded-xl text-sm font-medium shadow-lg bg-slate-900 text-white; opacity:0; transform: translateY(10px); transition: .25s; }
-    .toast.show { opacity:1; transform: translateY(0); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Future Bass Lab | Free Sample Packs</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100">
-  <!-- App Shell -->
-  <div class="min-h-screen grid grid-cols-1 lg:grid-cols-[300px,1fr]">
-    <!-- Sidebar -->
-    <aside class="hidden lg:block border-r border-slate-200 dark:border-slate-800 p-6">
-      <div class="flex items-center gap-3 mb-6">
-        <div class="h-10 w-10 rounded-xl bg-violet-600 text-white grid place-items-center font-extrabold">Y</div>
-        <div>
-          <div class="text-lg font-extrabold">Your Ghost Project</div>
-          <div class="text-xs text-slate-500">90‑Day Execution • Oct–Dec 2025</div>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation"></div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>⚗️ The Future Bass Lab</h1>
+                <p class="tagline">Premium Bass House & Trap EDM Sample Packs</p>
+            </div>
+            <nav>
+                <a href="#samples" class="nav-link">Free Samples</a>
+                <a href="https://gumroad.com" target="_blank" class="nav-link">Gumroad</a>
+                <a href="https://tiktok.com" target="_blank" class="nav-link">TikTok</a>
+            </nav>
         </div>
-      </div>
+    </header>
 
-      <div class="space-y-4">
-        <div class="card p-4">
-          <div class="text-[11px] uppercase tracking-wide text-slate-500">This Week</div>
-          <div class="mt-2 flex items-end justify-between">
-            <div class="text-3xl font-extrabold"><span id="kpi-week">0</span>%</div>
-            <div class="text-xs text-slate-500">Mon–Sun</div>
-          </div>
-          <div class="mt-3 h-2 w-full rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
-            <div id="week-bar" class="h-full rounded-full bg-violet-600" style="width:0%"></div>
-          </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2 class="hero-title">Free Daily Loops & Sample Packs</h2>
+            <p class="hero-subtitle">Download professional-grade Bass House, Festival Trap, and Halftime sounds. Updated daily.</p>
+            <div class="cta-buttons">
+                <a href="#samples" class="btn btn-primary">Browse Samples</a>
+                <a href="https://gumroad.com" target="_blank" class="btn btn-secondary">Get Full Packs</a>
+            </div>
         </div>
+    </section>
 
-        <div class="card p-4">
-          <div class="flex items-center justify-between">
-            <div>
-              <div class="text-[11px] uppercase tracking-wide text-slate-500">Streak</div>
-              <div class="mt-1 text-2xl font-extrabold"><span id="kpi-streak">0</span> days</div>
-            </div>
-            <div class="chip bg-slate-100 dark:bg-slate-800">Start: <span id="kpi-start" class="ml-1">2025‑09‑26</span></div>
-          </div>
-        </div>
-
-        <div class="card p-4">
-          <div class="text-[11px] uppercase tracking-wide text-slate-500">Buffer</div>
-          <div class="mt-2 text-2xl font-extrabold"><span id="kpi-buffer">Available</span></div>
-          <div class="mt-3 flex gap-2">
-            <button id="quick-buffer" class="btn btn-outline w-full">Mark Today as Buffer</button>
-          </div>
-        </div>
-
-        <div class="card p-4">
-          <div class="text-[11px] uppercase tracking-wide text-slate-500">Revenue (this month)</div>
-          <div class="mt-2 text-3xl font-extrabold">£<span id="kpi-rev">0</span></div>
-          <div class="text-xs text-slate-500 mt-1">Closed Won • GBP</div>
-        </div>
-
-        <nav class="pt-2">
-          <a data-tab="tracker" class="tab-link flex items-center justify-between px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer font-semibold">
-            <span>Daily Tracker</span><span>→</span>
-          </a>
-          <a data-tab="pipeline" class="tab-link flex items-center justify-between px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer font-semibold">
-            <span>Sales Pipeline</span><span>→</span>
-          </a>
-          <a data-tab="settings" class="tab-link flex items-center justify-between px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer font-semibold">
-            <span>Settings</span><span>→</span>
-          </a>
-        </nav>
-      </div>
-
-      <div class="mt-8 text-[11px] text-slate-500">Data stored locally • Optimised for GitHub Pages</div>
-    </aside>
-
-    <!-- Main -->
-    <div>
-      <!-- Top Bar -->
-      <header class="glass sticky top-0 z-30 border-b border-slate-200 dark:border-slate-800">
-        <div class="px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-          <div class="flex items-center gap-3 lg:hidden">
-            <div class="h-9 w-9 rounded-xl bg-violet-600 text-white grid place-items-center font-extrabold">Y</div>
-            <div class="text-sm font-bold">YGP — 90‑Day Tracker</div>
-          </div>
-          <div class="hidden md:flex items-center gap-2 text-xs">
-            <span class="chip bg-slate-100 dark:bg-slate-800">Daily: Twine • Upwork • SoundBetter • TikTok</span>
-            <span class="chip bg-slate-100 dark:bg-slate-800">YouTube every <span id="yt-cadence-pill">2</span> days</span>
-            <span class="chip bg-slate-100 dark:bg-slate-800">1 buffer day/week</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <button id="btn-today" class="btn btn-ghost">Today</button>
-            <button id="btn-theme" class="btn btn-ghost" title="Toggle theme">🌗</button>
-          </div>
-        </div>
-      </header>
-
-      <main class="px-4 sm:px-6 lg:px-8 py-6 space-y-8">
-        <!-- Sticky Progress -->
-        <section class="sticky-bar">
-          <div class="card p-4 flex items-center justify-between gap-4">
-            <div class="flex-1">
-              <div class="text-[11px] uppercase tracking-wide text-slate-500">Weekly Progress</div>
-              <div class="mt-2 h-2 w-full rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
-                <div id="week-progress" class="h-full rounded-full bg-violet-600 shimmer" style="width:0%"></div>
-              </div>
-            </div>
-            <div class="text-2xl font-extrabold"><span id="week-pct">0</span>%</div>
-            <div class="hidden md:flex gap-2">
-              <button id="btn-expand" class="btn btn-outline">Expand all</button>
-              <button id="btn-collapse" class="btn btn-outline">Collapse all</button>
-            </div>
-          </div>
-        </section>
-
-        <!-- TRACKER TAB -->
-        <section id="tab-tracker" class="space-y-6">
-          <div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
-            <div class="card p-4">
-              <h3 class="font-bold">October 2025</h3>
-              <div id="cal-oct" class="mt-3 grid-7"></div>
-            </div>
-            <div class="card p-4">
-              <h3 class="font-bold">November 2025</h3>
-              <div id="cal-nov" class="mt-3 grid-7"></div>
-            </div>
-            <div class="card p-4">
-              <h3 class="font-bold">December 2025</h3>
-              <div id="cal-dec" class="mt-3 grid-7"></div>
-            </div>
-          </div>
-        </section>
-
-        <!-- PIPELINE TAB -->
-        <section id="tab-pipeline" class="hidden space-y-6">
-          <div class="flex items-center justify-between">
-            <h3 class="text-xl font-extrabold">Sales Pipeline</h3>
-            <div class="flex items-center gap-2">
-              <button id="toggle-view" class="btn btn-outline">Kanban View</button>
-              <button id="btn-export" class="btn btn-outline">Export JSON</button>
-              <label for="import-file" class="btn btn-outline cursor-pointer">Import JSON</label>
-              <input id="import-file" type="file" accept="application/json" class="hidden">
-            </div>
-          </div>
-
-          <div class="card p-4">
-            <form id="deal-form" class="grid grid-cols-1 md:grid-cols-12 gap-3">
-              <div class="md:col-span-4">
-                <label class="text-xs text-slate-500">Client / Project</label>
-                <input required id="deal-client" class="w-full mt-1 rounded-xl border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-violet-600 focus:border-violet-600" placeholder="Artist / Brand / Project">
-                <p class="text-[11px] text-slate-500 mt-1">e.g., “Poppy – mentorship” or “Sync brief – ad”</p>
-              </div>
-              <div class="md:col-span-3">
-                <label class="text-xs text-slate-500">Source</label>
-                <select id="deal-source" class="w-full mt-1 rounded-xl border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-violet-600 focus:border-violet-600">
-                  <option>Twine</option><option>Upwork</option><option>SoundBetter</option><option>YouTube/TikTok</option><option>Direct/Email</option><option>Referral</option><option>Other</option>
-                </select>
-              </div>
-              <div class="md:col-span-3">
-                <label class="text-xs text-slate-500">Category</label>
-                <select id="deal-category" class="w-full mt-1 rounded-xl border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-violet-600 focus:border-violet-600">
-                  <option>Production</option><option>Mixing</option><option>Mastering</option><option>Mentorship</option><option>Sync/Library</option><option>Other</option>
-                </select>
-              </div>
-              <div class="md:col-span-2">
-                <label class="text-xs text-slate-500">Currency</label>
-                <select id="deal-currency" class="w-full mt-1 rounded-xl border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-violet-600 focus:border-violet-600">
-                  <option value="GBP">£ GBP</option><option value="USD">$ USD</option><option value="EUR">€ EUR</option>
-                </select>
-              </div>
-              <div class="md:col-span-2">
-                <label class="text-xs text-slate-500">Amount</label>
-                <input id="deal-amount" type="number" step="0.01" class="w-full mt-1 rounded-xl border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-violet-600 focus:border-violet-600" placeholder="150.00">
-              </div>
-              <div class="md:col-span-3">
-                <label class="text-xs text-slate-500">Status</label>
-                <select id="deal-status" class="w-full mt-1 rounded-xl border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-violet-600 focus:border-violet-600">
-                  <option>Lead</option><option>In Discussion</option><option>In Production</option><option>Closed Won</option><option>Closed Lost</option>
-                </select>
-              </div>
-              <div class="md:col-span-3">
-                <label class="text-xs text-slate-500">Close Date</label>
-                <input id="deal-date" type="date" class="w-full mt-1 rounded-xl border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-violet-600 focus:border-violet-600">
-              </div>
-              <div class="md:col-span-12">
-                <label class="text-xs text-slate-500">Notes</label>
-                <input id="deal-notes" class="w-full mt-1 rounded-xl border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-violet-600 focus:border-violet-600" placeholder="Scope, deliverables, next step / reminder…">
-              </div>
-              <div class="md:col-span-12 flex items-center gap-2 mt-2">
-                <button class="btn btn-primary" type="submit">Save Deal</button>
-                <button id="btn-reset-pipeline" class="btn btn-outline" type="button">Reset Pipeline</button>
-              </div>
-            </form>
-          </div>
-
-          <div id="pipeline-wrapper" class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div class="lg:col-span-2 card p-4">
-              <div class="flex items-center justify-between mb-3">
-                <h4 class="font-bold">Pipeline Table</h4>
-              </div>
-              <div class="overflow-x-auto">
-                <table class="min-w-full text-sm" id="pipeline-table">
-                  <thead>
-                    <tr class="text-left text-slate-500">
-                      <th class="py-2">Client</th><th>Source</th><th>Category</th><th>Amount</th><th>Status</th><th>Date</th><th>Notes</th><th></th>
-                    </tr>
-                  </thead>
-                  <tbody id="pipeline-body"></tbody>
-                </table>
-              </div>
-            </div>
-            <div class="space-y-6">
-              <div class="card p-4">
-                <h4 class="font-bold mb-3">Revenue Summary (GBP, Closed Won)</h4>
-                <div class="grid grid-cols-3 gap-2 text-sm">
-                  <div class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800">
-                    <p class="text-[11px] text-slate-500">October</p>
-                    <p class="font-extrabold text-lg">£<span id="rev-oct">0</span></p>
-                  </div>
-                  <div class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800">
-                    <p class="text-[11px] text-slate-500">November</p>
-                    <p class="font-extrabold text-lg">£<span id="rev-nov">0</span></p>
-                  </div>
-                  <div class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800">
-                    <p class="text-[11px] text-slate-500">December</p>
-                    <p class="font-extrabold text-lg">£<span id="rev-dec">0</span></p>
-                  </div>
+    <!-- Sample Library Section -->
+    <section id="samples" class="samples-section">
+        <div class="container">
+            <h2 class="section-title">🎵 Free Sample Library</h2>
+            <p class="section-subtitle">Listen, download, and create your next hit</p>
+            
+            <!-- Sample Item 1 -->
+            <div class="sample-card">
+                <div class="sample-info">
+                    <h3>Nasty Bass Loop #1</h3>
+                    <p class="sample-meta">Bass House • 128 BPM • WAV</p>
                 </div>
-              </div>
-              <div class="card p-4">
-                <h4 class="font-bold mb-3">Charts</h4>
-                <canvas id="chart-months" height="180"></canvas>
-                <canvas id="chart-sources" height="180" class="mt-6"></canvas>
-              </div>
+                <div class="audio-player" data-audio="samples/loop1.wav">
+                    <button class="play-btn">▶️</button>
+                    <div class="progress-container">
+                        <div class="progress-bar"></div>
+                    </div>
+                    <span class="time">0:00 / 0:00</span>
+                    <a href="samples/loop1.wav" download class="download-btn">⬇️ Download</a>
+                </div>
             </div>
-          </div>
 
-          <!-- Kanban -->
-          <div id="kanban" class="hidden grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-4">
-            <!-- Columns generated by JS -->
-          </div>
-        </section>
-
-        <!-- SETTINGS TAB -->
-        <section id="tab-settings" class="hidden space-y-6">
-          <div class="card p-4">
-            <h3 class="font-bold mb-3">Preferences</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div>
-                <label class="text-xs text-slate-500">Start Date (for streak)</label>
-                <input id="pref-start" type="date" class="w-full mt-1 rounded-xl border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-violet-600 focus:border-violet-600">
-              </div>
-              <div>
-                <label class="text-xs text-slate-500">YouTube cadence</label>
-                <select id="pref-yt" class="w-full mt-1 rounded-xl border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-violet-600 focus:border-violet-600">
-                  <option value="2">Every 2 days</option>
-                  <option value="3">Every 3 days</option>
-                  <option value="1">Daily</option>
-                </select>
-              </div>
-              <div class="flex items-end">
-                <button id="btn-save" class="btn btn-primary w-full">Save</button>
-              </div>
+            <!-- Sample Item 2 -->
+            <div class="sample-card">
+                <div class="sample-info">
+                    <h3>Festival Trap Drop #2</h3>
+                    <p class="sample-meta">Festival Trap • 140 BPM • WAV</p>
+                </div>
+                <div class="audio-player" data-audio="samples/loop2.wav">
+                    <button class="play-btn">▶️</button>
+                    <div class="progress-container">
+                        <div class="progress-bar"></div>
+                    </div>
+                    <span class="time">0:00 / 0:00</span>
+                    <a href="samples/loop2.wav" download class="download-btn">⬇️ Download</a>
+                </div>
             </div>
-            <div class="mt-4 flex items-center gap-2">
-              <button id="btn-reset-tracker" class="btn btn-outline">Reset Tracker</button>
+
+            <!-- Sample Item 3 -->
+            <div class="sample-card">
+                <div class="sample-info">
+                    <h3>Halftime Bass Loop #3</h3>
+                    <p class="sample-meta">Halftime • 150 BPM • WAV</p>
+                </div>
+                <div class="audio-player" data-audio="samples/loop3.wav">
+                    <button class="play-btn">▶️</button>
+                    <div class="progress-container">
+                        <div class="progress-bar"></div>
+                    </div>
+                    <span class="time">0:00 / 0:00</span>
+                    <a href="samples/loop3.wav" download class="download-btn">⬇️ Download</a>
+                </div>
             </div>
-          </div>
-        </section>
 
-        <footer class="py-8 text-center text-xs text-slate-500">
-          Built for Gauthier • Your Ghost Project • Oct–Dec 2025
-        </footer>
-      </main>
-    </div>
-  </div>
+            <!-- Add more sample cards as needed -->
 
-  <div id="toast" class="toast">Saved</div>
+        </div>
+    </section>
 
-<script>
-// ===== Persisted Theme =====
-const THEME_KEY = 'ygp.theme';
-function setTheme(mode){
-  if(mode==='dark'){ document.documentElement.classList.add('dark'); }
-  else { document.documentElement.classList.remove('dark'); }
-  localStorage.setItem(THEME_KEY, mode);
-}
-setTheme(localStorage.getItem(THEME_KEY)||'light');
-document.getElementById('btn-theme').addEventListener('click', ()=>{
-  const isDark = document.documentElement.classList.contains('dark');
-  setTheme(isDark?'light':'dark');
-});
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title">About The Lab</h2>
+            <p>The Future Bass Lab creates professional-grade sample packs for bass house, festival trap, and electronic music producers. Our daily free loops help you build your next banger, and our premium packs take your production to the next level.</p>
+            <p>Join our community on TikTok for daily beat-making tutorials and free sample giveaways.</p>
+        </div>
+    </section>
 
-// ===== Storage Keys =====
-const LSK = { tracker:'ygp90.tracker.v2', pipeline:'ygp90.pipeline.v2', prefs:'ygp90.prefs.v2' };
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 The Future Bass Lab. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://tiktok.com" target="_blank">TikTok</a>
+                <a href="https://instagram.com" target="_blank">Instagram</a>
+                <a href="https://gumroad.com" target="_blank">Gumroad</a>
+            </div>
+        </div>
+    </footer>
 
-// ===== Prefs =====
-const defaultPrefs = { startDate:'2025-09-26', ytCadence:2 };
-const prefs = JSON.parse(localStorage.getItem(LSK.prefs)||'null') || defaultPrefs;
-function savePrefs(){ localStorage.setItem(LSK.prefs, JSON.stringify(prefs)); showToast('Preferences saved'); }
-
-// ===== Tracker =====
-const tracker = JSON.parse(localStorage.getItem(LSK.tracker)||'{}');
-function saveTracker(){ localStorage.setItem(LSK.tracker, JSON.stringify(tracker)); }
-
-// ===== Pipeline =====
-let pipeline = JSON.parse(localStorage.getItem(LSK.pipeline)||'[]');
-function savePipeline(){ localStorage.setItem(LSK.pipeline, JSON.stringify(pipeline)); }
-
-// ===== Utilities =====
-const GBP = (n)=> (n||0).toLocaleString('en-GB',{minimumFractionDigits:0});
-const fmtDateISO = (d)=>{ const y=d.getFullYear(), m=String(d.getMonth()+1).padStart(2,'0'), da=String(d.getDate()).padStart(2,'0'); return `${y}-${m}-${da}`; };
-const fromISO = (s)=>{ const [y,m,d]=s.split('-').map(Number); return new Date(y,m-1,d); };
-function startOfWeek(d){ const date=new Date(d); const day=(date.getDay()+6)%7; date.setDate(date.getDate()-day); date.setHours(0,0,0,0); return date; }
-function endOfWeek(d){ const s=startOfWeek(d); const e=new Date(s); e.setDate(s.getDate()+6); e.setHours(23,59,59,999); return e; }
-
-// ===== Tabs =====
-const tabLinks = document.querySelectorAll('.tab-link');
-const panels = { tracker:document.getElementById('tab-tracker'), pipeline:document.getElementById('tab-pipeline'), settings:document.getElementById('tab-settings') };
-function activateTab(name){
-  tabLinks.forEach(a=> a.dataset.tab===name ? a.classList.add('bg-slate-100','dark:bg-slate-800') : a.classList.remove('bg-slate-100','dark:bg-slate-800'));
-  Object.entries(panels).forEach(([k,el]) => el.classList.toggle('hidden', k!==name));
-}
-tabLinks.forEach(a=> a.addEventListener('click', ()=> activateTab(a.dataset.tab)));
-activateTab('tracker');
-
-// ===== Calendars =====
-const rangeStart = new Date(2025,9-1,1);
-const rangeEnd = new Date(2025,12-1,31);
-const months = [{y:2025,m:9,id:'cal-oct'},{y:2025,m:10,id:'cal-nov'},{y:2025,m:11,id:'cal-dec'}];
-
-function isRequired(iso, task){
-  if(task!=='youtube') return true;
-  const start = fromISO(prefs.startDate);
-  const d = fromISO(iso);
-  const diff = Math.floor((d - start)/(1000*60*60*24));
-  return diff >= 0 && (diff % prefs.ytCadence) === 0;
-}
-
-function bufferUsedThisWeek(date){
-  const sw = startOfWeek(date), ew = endOfWeek(date);
-  for(const [iso, rec] of Object.entries(tracker)){
-    const d = fromISO(iso);
-    if(d>=sw && d<=ew && rec.buffer) return true;
-  }
-  return false;
-}
-
-function dayCell(date){
-  const iso = fmtDateISO(date);
-  if(!tracker[iso]) tracker[iso] = { tasks:{ twine:false, upwork:false, soundbetter:false, tiktok:false, youtube:false }, buffer:false };
-  const rec = tracker[iso];
-
-  const todayISO = fmtDateISO(new Date());
-  const isToday = iso===todayISO;
-
-  const required = { twine:true, upwork:true, soundbetter:true, tiktok:true, youtube:isRequired(iso,'youtube') };
-
-  const wrap = document.createElement('div');
-  wrap.className = 'day ' + (isToday?'today ':'') + (rec.buffer?'buffer ':'');
-
-  const head = document.createElement('div');
-  head.className = 'flex items-center justify-between';
-  head.innerHTML = `<div class="font-bold ${isToday?'text-violet-700 dark:text-violet-400':''}">${date.getDate()}</div>
-    <div class="flex items-center gap-1">
-      ${rec.buffer?'<span class="pill bg-amber-200 text-amber-900 dark:bg-amber-900/40 dark:text-amber-200">Buffer</span>':''}
-      <span class="pill bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300"><span data-p="${iso}">${progressForDay(iso)}</span>%</span>
-    </div>`;
-  wrap.appendChild(head);
-
-  const list = document.createElement('div');
-  list.className = 'mt-2 space-y-1';
-  const items = [['twine','Twine'],['upwork','Upwork'],['soundbetter','SoundBetter'],['tiktok','TikTok'],['youtube','YouTube']];
-  items.forEach(([key,label])=>{
-    const row = document.createElement('label');
-    row.className = 'flex items-center justify-between gap-2 p-1 rounded hover:bg-slate-50 dark:hover:bg-slate-800';
-    row.innerHTML = `<span>${label}${required[key]?'':' <span class="text-slate-400">(optional)</span>'}`;
-    const cb = document.createElement('input');
-    cb.type = 'checkbox'; cb.className = 'tick';
-    cb.checked = !!rec.tasks[key];
-    cb.addEventListener('change', ()=>{
-      rec.tasks[key] = cb.checked; saveTracker(); refreshKPIs();
-      head.querySelector(`[data-p="${iso}"]`).textContent = progressForDay(iso);
-    });
-    row.appendChild(cb);
-    list.appendChild(row);
-  });
-  wrap.appendChild(list);
-
-  const actions = document.createElement('div');
-  actions.className = 'mt-2 flex items-center justify-between text-[11px]';
-  const bufBtn = document.createElement('button'); bufBtn.className = 'underline text-amber-700 dark:text-amber-300';
-  bufBtn.textContent = rec.buffer?'Remove buffer':'Mark buffer';
-  bufBtn.addEventListener('click', ()=>{
-    if(!rec.buffer && bufferUsedThisWeek(date)){ alert('Buffer already used this week.'); return; }
-    rec.buffer = !rec.buffer; saveTracker(); rebuildCalendars(); refreshKPIs();
-  });
-  const clrBtn = document.createElement('button'); clrBtn.className = 'underline text-slate-500';
-  clrBtn.textContent = 'Clear';
-  clrBtn.addEventListener('click', ()=>{
-    rec.tasks = { twine:false, upwork:false, soundbetter:false, tiktok:false, youtube:false };
-    rec.buffer = false; saveTracker(); rebuildCalendars(); refreshKPIs();
-  });
-  actions.appendChild(bufBtn); actions.appendChild(clrBtn);
-  wrap.appendChild(actions);
-
-  return wrap;
-}
-
-function progressForDay(iso){
-  const rec = tracker[iso]; if(rec.buffer) return 100;
-  const reqs = ['twine','upwork','soundbetter','tiktok','youtube'].filter(k=> isRequired(iso,k));
-  const done = reqs.filter(k=> rec.tasks[k]).length;
-  return Math.round((done/reqs.length)*100);
-}
-
-function monthGrid(y,m,id){
-  const mount = document.getElementById(id);
-  mount.innerHTML = '';
-  ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].forEach(d=>{
-    const h = document.createElement('div'); h.className='text-center text-[11px] text-slate-500'; h.textContent=d; mount.appendChild(h);
-  });
-  const first = new Date(y,m,1), last = new Date(y,m+1,0);
-  const pad = (first.getDay()+6)%7;
-  for(let i=0;i<pad;i++){ mount.appendChild(document.createElement('div')); }
-  for(let d=1; d<=last.getDate(); d++){
-    const date = new Date(y,m,d);
-    mount.appendChild(dayCell(date));
-  }
-}
-
-function rebuildCalendars(){
-  monthGrid(2025,9,'cal-oct');
-  monthGrid(2025,10,'cal-nov');
-  monthGrid(2025,11,'cal-dec');
-}
-rebuildCalendars();
-
-// Toolbar actions
-document.getElementById('btn-today').addEventListener('click', ()=>{
-  const t = new Date(); const m=t.getMonth(); const id = (m===9)?'cal-oct':(m===10)?'cal-nov':(m===11)?'cal-dec':null;
-  if(id){ document.getElementById(id).scrollIntoView({behavior:'smooth', block:'center'}); }
-});
-document.getElementById('btn-expand').addEventListener('click', ()=> document.querySelectorAll('.day').forEach(el=> el.classList.remove('collapsed')));
-document.getElementById('btn-collapse').addEventListener('click', ()=> document.querySelectorAll('.day').forEach(el=> el.classList.add('collapsed')));
-
-// Quick buffer
-document.getElementById('quick-buffer').addEventListener('click', ()=>{
-  const iso = fmtDateISO(new Date());
-  if(!tracker[iso]) tracker[iso] = { tasks:{twine:false,upwork:false,soundbetter:false,tiktok:false,youtube:false}, buffer:false };
-  if(bufferUsedThisWeek(new Date())){ alert('Buffer already used this week.'); return; }
-  tracker[iso].buffer = true; saveTracker(); rebuildCalendars(); refreshKPIs(); showToast('Today marked as buffer');
-});
-
-// ===== KPIs =====
-function refreshKPIs(){
-  // Week %
-  const now = new Date(); const sw = startOfWeek(now);
-  let sum=0, count=0;
-  for(let i=0;i<7;i++){ const d=new Date(sw); d.setDate(sw.getDate()+i);
-    if(d<rangeStart || d>rangeEnd) continue;
-    const iso=fmtDateISO(d); if(!tracker[iso]) continue;
-    sum += progressForDay(iso); count++;
-  }
-  const pct = count? Math.round(sum/count):0;
-  document.getElementById('kpi-week').textContent = pct;
-  document.getElementById('week-pct').textContent = pct;
-  document.getElementById('week-bar').style.width = pct+'%';
-  document.getElementById('week-progress').style.width = pct+'%';
-  // Streak
-  let streak=0; const start=fromISO(prefs.startDate);
-  for(let d=new Date(); d>=start; d.setDate(d.getDate()-1)){
-    const iso=fmtDateISO(d); if(!tracker[iso]) break;
-    if(progressForDay(iso)===100) streak++; else break;
-  }
-  document.getElementById('kpi-streak').textContent = streak;
-  document.getElementById('kpi-start').textContent = prefs.startDate;
-  // Buffer
-  document.getElementById('kpi-buffer').textContent = bufferUsedThisWeek(new Date()) ? 'Used' : 'Available';
-  // Revenue KPI (GBP this month)
-  const nowM = now.getMonth(); const monthStart=new Date(now.getFullYear(), nowM, 1); const monthEnd=new Date(now.getFullYear(), nowM+1,0);
-  let rev=0; pipeline.forEach(p=>{
-    if(p.status==='Closed Won' && p.currency==='GBP' && p.date){
-      const d=new Date(p.date); if(d>=monthStart && d<=monthEnd) rev+=Number(p.amount||0);
-    }
-  });
-  document.getElementById('kpi-rev').textContent = GBP(rev);
-}
-refreshKPIs();
-
-// ===== Settings init =====
-document.getElementById('pref-start').value = prefs.startDate;
-document.getElementById('pref-yt').value = String(prefs.ytCadence);
-document.getElementById('yt-cadence-pill').textContent = String(prefs.ytCadence);
-document.getElementById('btn-save').addEventListener('click', ()=>{
-  prefs.startDate = document.getElementById('pref-start').value || prefs.startDate;
-  prefs.ytCadence = Number(document.getElementById('pref-yt').value||2);
-  savePrefs(); document.getElementById('yt-cadence-pill').textContent = String(prefs.ytCadence);
-  rebuildCalendars(); refreshKPIs();
-});
-document.getElementById('btn-reset-tracker').addEventListener('click', ()=>{
-  if(confirm('Reset all tracker data?')){ localStorage.removeItem(LSK.tracker); location.reload(); }
-});
-
-// ===== Pipeline =====
-const tbody = document.getElementById('pipeline-body');
-function renderPipelineTable(){
-  tbody.innerHTML='';
-  pipeline.forEach((p,idx)=>{
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td class="py-2">${p.client||''}</td>
-      <td>${p.source||''}</td>
-      <td>${p.category||''}</td>
-      <td>${p.currency||'GBP'} ${(Number(p.amount||0)).toFixed(2)}</td>
-      <td>
-        <span class="chip ${p.status==='Closed Won'?'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300':
-                            p.status==='Closed Lost'?'bg-rose-100 text-rose-800 dark:bg-rose-900/30 dark:text-rose-300':
-                            p.status==='In Production'?'bg-violet-100 text-violet-800 dark:bg-violet-900/30 dark:text-violet-300':
-                            'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300'}">${p.status||''}</span>
-      </td>
-      <td>${p.date||''}</td>
-      <td class="max-w-[260px] truncate" title="${(p.notes||'').replace(/"/g,'&quot;')}">${p.notes||''}</td>
-      <td class="text-right">
-        <button data-edit="${idx}" class="text-xs underline text-slate-600 dark:text-slate-300 mr-2">Edit</button>
-        <button data-del="${idx}" class="text-xs underline text-rose-600">Delete</button>
-      </td>`;
-    tbody.appendChild(tr);
-  });
-  attachTableHandlers();
-  updateRevenueSummaries();
-  drawCharts();
-}
-
-function attachTableHandlers(){
-  tbody.querySelectorAll('[data-del]').forEach(btn=> btn.addEventListener('click', ()=>{
-    const i = Number(btn.dataset.del);
-    if(confirm('Delete this deal?')){ pipeline.splice(i,1); savePipeline(); renderPipelineTable(); refreshKPIs(); showToast('Deal deleted'); }
-  }));
-  tbody.querySelectorAll('[data-edit]').forEach(btn=> btn.addEventListener('click', ()=>{
-    const i = Number(btn.dataset.edit), p=pipeline[i];
-    document.getElementById('deal-form').dataset.editing = String(i);
-    document.getElementById('deal-client').value = p.client||'';
-    document.getElementById('deal-source').value = p.source||'Other';
-    document.getElementById('deal-category').value = p.category||'Other';
-    document.getElementById('deal-currency').value = p.currency||'GBP';
-    document.getElementById('deal-amount').value = p.amount||'';
-    document.getElementById('deal-status').value = p.status||'Lead';
-    document.getElementById('deal-date').value = p.date||'';
-    document.getElementById('deal-notes').value = p.notes||'';
-    document.getElementById('deal-form').scrollIntoView({behavior:'smooth', block:'center'});
-  }));
-}
-
-document.getElementById('deal-form').addEventListener('submit', (e)=>{
-  e.preventDefault();
-  const rec = {
-    client: document.getElementById('deal-client').value.trim(),
-    source: document.getElementById('deal-source').value,
-    category: document.getElementById('deal-category').value,
-    currency: document.getElementById('deal-currency').value,
-    amount: parseFloat(document.getElementById('deal-amount').value||'0'),
-    status: document.getElementById('deal-status').value,
-    date: document.getElementById('deal-date').value,
-    notes: document.getElementById('deal-notes').value.trim()
-  };
-  if(!rec.client){ showToast('Client is required'); return; }
-  const idx = document.getElementById('deal-form').dataset.editing;
-  if(idx){ pipeline[Number(idx)] = rec; document.getElementById('deal-form').dataset.editing=''; showToast('Deal updated'); }
-  else { pipeline.push(rec); showToast('Deal added'); }
-  savePipeline(); renderPipelineTable(); e.target.reset(); refreshKPIs();
-});
-
-document.getElementById('btn-export').addEventListener('click', ()=>{
-  const data = { prefs, tracker, pipeline };
-  const blob = new Blob([JSON.stringify(data,null,2)], {type:'application/json'});
-  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'ygp-90day-tracker.json'; a.click();
-  showToast('Exported JSON');
-});
-document.getElementById('import-file').addEventListener('change', (e)=>{
-  const f=e.target.files[0]; if(!f) return;
-  const reader = new FileReader();
-  reader.onload = ()=>{
-    try{
-      const data = JSON.parse(reader.result);
-      if(data.prefs) localStorage.setItem(LSK.prefs, JSON.stringify(data.prefs));
-      if(data.tracker) localStorage.setItem(LSK.tracker, JSON.stringify(data.tracker));
-      if(data.pipeline) localStorage.setItem(LSK.pipeline, JSON.stringify(data.pipeline));
-      showToast('Data imported'); location.reload();
-    } catch{ alert('Invalid JSON'); }
-  };
-  reader.readAsText(f);
-});
-document.getElementById('btn-reset-pipeline').addEventListener('click', ()=>{
-  if(confirm('Reset entire pipeline?')){ localStorage.removeItem(LSK.pipeline); pipeline=[]; renderPipelineTable(); refreshKPIs(); showToast('Pipeline reset'); }
-});
-
-// Kanban
-const KANBAN_STATUSES = ['Lead','In Discussion','In Production','Closed Won','Closed Lost'];
-function renderKanban(){
-  const root = document.getElementById('kanban'); root.innerHTML='';
-  KANBAN_STATUSES.forEach(st=>{
-    const col = document.createElement('div');
-    col.className = 'card p-3';
-    col.innerHTML = `<div class="flex items-center justify-between mb-2">
-      <div class="font-bold">${st}</div>
-      <div class="chip bg-slate-100 dark:bg-slate-800" id="count-${st.replace(/\s/g,'')}">0</div>
-    </div>
-    <div class="space-y-2" id="col-${st.replace(/\s/g,'')}"></div>`;
-    root.appendChild(col);
-  });
-  const counts = {};
-  pipeline.forEach((p,i)=>{
-    const cId = `col-${p.status.replace(/\s/g,'')}`;
-    const bucket = document.getElementById(cId); if(!bucket) return;
-    const card = document.createElement('div');
-    card.className = 'rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-3';
-    card.innerHTML = `<div class="font-semibold">${p.client||'Untitled'}</div>
-      <div class="text-xs text-slate-500 flex items-center justify-between mt-1">
-        <span>${p.source||''} • ${p.category||''}</span>
-        <span>${p.currency||'GBP'} ${(Number(p.amount||0)).toFixed(0)}</span>
-      </div>
-      ${p.date?`<div class="text-[11px] text-slate-500 mt-1">Close: ${p.date}</div>`:''}
-      ${p.notes?`<div class="text-[11px] text-slate-500 mt-1 line-clamp-2">${p.notes}</div>`:''}`;
-    bucket.appendChild(card);
-    counts[p.status] = (counts[p.status]||0)+1;
-  });
-  KANBAN_STATUSES.forEach(st=>{
-    document.getElementById(`count-${st.replace(/\s/g,'')}`).textContent = counts[st]||0;
-  });
-}
-let kanbanMode = false;
-document.getElementById('toggle-view').addEventListener('click', ()=>{
-  kanbanMode = !kanbanMode;
-  document.getElementById('pipeline-wrapper').classList.toggle('hidden', kanbanMode);
-  document.getElementById('kanban').classList.toggle('hidden', !kanbanMode);
-  document.getElementById('toggle-view').textContent = kanbanMode ? 'Table View' : 'Kanban View';
-  if(kanbanMode) renderKanban();
-});
-
-function updateRevenueSummaries(){
-  const months = {'2025-10':0,'2025-11':0,'2025-12':0};
-  pipeline.forEach(p=>{
-    if(p.status!=='Closed Won' || p.currency!=='GBP' || !p.date) return;
-    const ym=p.date.slice(0,7); if(months[ym]!==undefined) months[ym]+=Number(p.amount||0);
-  });
-  document.getElementById('rev-oct').textContent = GBP(months['2025-10']);
-  document.getElementById('rev-nov').textContent = GBP(months['2025-11']);
-  document.getElementById('rev-dec').textContent = GBP(months['2025-12']);
-}
-
-let chartMonths, chartSources;
-function drawCharts(){
-  const ctxM = document.getElementById('chart-months').getContext('2d');
-  const ctxS = document.getElementById('chart-sources').getContext('2d');
-  const sumByMonth = {Oct:0, Nov:0, Dec:0};
-  const sumBySource = {};
-  pipeline.forEach(p=>{
-    if(p.status!=='Closed Won' || p.currency!=='GBP' || !p.date) return;
-    const m = new Date(p.date).getMonth(); const key = m===9?'Oct':m===10?'Nov':'Dec';
-    sumByMonth[key]+=Number(p.amount||0);
-    sumBySource[p.source] = (sumBySource[p.source]||0)+Number(p.amount||0);
-  });
-  if(chartMonths) chartMonths.destroy();
-  if(chartSources) chartSources.destroy();
-  chartMonths = new Chart(ctxM, { type:'bar',
-    data:{ labels:['Oct','Nov','Dec'], datasets:[{ label:'GBP', data:[sumByMonth.Oct,sumByMonth.Nov,sumByMonth.Dec] }] },
-    options:{ plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true}} } });
-  chartSources = new Chart(ctxS, { type:'doughnut',
-    data:{ labels:Object.keys(sumBySource), datasets:[{ data:Object.values(sumBySource) }] },
-    options:{ plugins:{legend:{position:'bottom'}} } });
-}
-
-renderPipelineTable();
-
-// ===== Toast =====
-function showToast(msg){
-  const t = document.getElementById('toast');
-  t.textContent = msg; t.classList.add('show');
-  setTimeout(()=> t.classList.remove('show'), 1600);
-}
-
-// ===== Init =====
-function init(){
-  document.getElementById('pref-start').value = prefs.startDate;
-  document.getElementById('pref-yt').value = String(prefs.ytCadence);
-  refreshKPIs();
-}
-init();
-</script>
+    <script src="script.js"></script>
 </body>
 </html>
